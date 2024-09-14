@@ -20,7 +20,6 @@ import store_white from "../assets/icons/header/store_white.svg";
 import store_black from "../assets/icons/header/store_black.svg";
 import notification_white from "../assets/icons/header/notification_white.svg";
 import notification_black from "../assets/icons/header/notification_black.svg";
-import { TbMinusVertical } from "react-icons/tb";
 
 interface HeaderInterface {
   white: boolean;
@@ -48,7 +47,7 @@ export default function Header({ white }: HeaderInterface) {
           <TabIndicator
             mt="-1.5px"
             height="2px"
-            bg="black"
+            bg={white ? "white" : "black"}
             borderRadius="1px"
           />
         </Tabs>
@@ -71,9 +70,15 @@ export default function Header({ white }: HeaderInterface) {
           ></img>
         </Button>
         <Button
+          _hover={
+            white
+              ? { bg: "white", color: "black" }
+              : { bg: "black", color: "white" }
+          }
           borderRadius={"50"}
-          backgroundColor={white ? "white" : "black"}
-          color={white ? "black" : "white"}
+          variant={"outline"}
+          border={white ? "1px solid white" : "1px solid black"}
+          color={white ? "white" : "black"}
         >
           갤러리 업로드
         </Button>
