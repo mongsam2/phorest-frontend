@@ -6,10 +6,7 @@ import {
   Tabs,
   TabList,
   Tab,
-  TabPanels,
-  TabPanel,
   TabIndicator,
-  useBoolean,
 } from "@chakra-ui/react";
 import phorestIconBlack from "../assets/icons/header/phorest_black.svg";
 import phorestIconWhite from "../assets/icons/header/phorest_white.svg";
@@ -21,13 +18,13 @@ import store_white from "../assets/icons/header/store_white.svg";
 import store_black from "../assets/icons/header/store_black.svg";
 import notification_white from "../assets/icons/header/notification_white.svg";
 import notification_black from "../assets/icons/header/notification_black.svg";
-
-interface HeaderInterface {
-  white: boolean;
-}
+import { HeaderInterface } from "./interfaces";
+import LoginBtn from "./LoginBtn";
+import SignUpBtn from "./SignUpBtn";
+import UploadBtn from "./UploadBtn";
 
 export default function Header({ white }: HeaderInterface) {
-  const [login, setLogin] = useBoolean();
+  const login = false;
   return (
     <Flex
       height={"100px"}
@@ -72,46 +69,11 @@ export default function Header({ white }: HeaderInterface) {
           ></img>
         </Button>
         {login ? (
-          <Button
-            _hover={
-              white
-                ? { bg: "white", color: "black" }
-                : { bg: "black", color: "white" }
-            }
-            borderRadius={"50"}
-            variant={"outline"}
-            border={white ? "1px solid white" : "1px solid black"}
-            color={white ? "white" : "black"}
-          >
-            갤러리 업로드
-          </Button>
+          <UploadBtn white={false}></UploadBtn>
         ) : (
           <HStack>
-            <Button
-              _hover={
-                white
-                  ? { bg: "white", color: "black" }
-                  : { bg: "black", color: "white" }
-              }
-              borderRadius={"50"}
-              variant={"outline"}
-              color={white ? "white" : "black"}
-            >
-              로그인
-            </Button>
-            <Button
-              _hover={
-                white
-                  ? { bg: "black", color: "white" }
-                  : { bg: "white", color: "black" }
-              }
-              borderRadius={"50"}
-              variant={"outline"}
-              color={white ? "black" : "white"}
-              bg={"black"}
-            >
-              회원가입
-            </Button>
+            <LoginBtn white={false}></LoginBtn>
+            <SignUpBtn white={false}></SignUpBtn>
           </HStack>
         )}
       </HStack>
