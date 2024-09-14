@@ -9,6 +9,7 @@ import {
   TabPanels,
   TabPanel,
   TabIndicator,
+  useBoolean,
 } from "@chakra-ui/react";
 import phorestIconBlack from "../assets/icons/header/phorest_black.svg";
 import phorestIconWhite from "../assets/icons/header/phorest_white.svg";
@@ -26,6 +27,7 @@ interface HeaderInterface {
 }
 
 export default function Header({ white }: HeaderInterface) {
+  const [login, setLogin] = useBoolean();
   return (
     <Flex
       height={"100px"}
@@ -69,19 +71,49 @@ export default function Header({ white }: HeaderInterface) {
             width={"30px"}
           ></img>
         </Button>
-        <Button
-          _hover={
-            white
-              ? { bg: "white", color: "black" }
-              : { bg: "black", color: "white" }
-          }
-          borderRadius={"50"}
-          variant={"outline"}
-          border={white ? "1px solid white" : "1px solid black"}
-          color={white ? "white" : "black"}
-        >
-          갤러리 업로드
-        </Button>
+        {login ? (
+          <Button
+            _hover={
+              white
+                ? { bg: "white", color: "black" }
+                : { bg: "black", color: "white" }
+            }
+            borderRadius={"50"}
+            variant={"outline"}
+            border={white ? "1px solid white" : "1px solid black"}
+            color={white ? "white" : "black"}
+          >
+            갤러리 업로드
+          </Button>
+        ) : (
+          <HStack>
+            <Button
+              _hover={
+                white
+                  ? { bg: "white", color: "black" }
+                  : { bg: "black", color: "white" }
+              }
+              borderRadius={"50"}
+              variant={"outline"}
+              color={white ? "white" : "black"}
+            >
+              로그인
+            </Button>
+            <Button
+              _hover={
+                white
+                  ? { bg: "black", color: "white" }
+                  : { bg: "white", color: "black" }
+              }
+              borderRadius={"50"}
+              variant={"outline"}
+              color={white ? "black" : "white"}
+              bg={"black"}
+            >
+              회원가입
+            </Button>
+          </HStack>
+        )}
       </HStack>
     </Flex>
   );
