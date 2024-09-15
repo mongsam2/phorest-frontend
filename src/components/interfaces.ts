@@ -2,7 +2,7 @@ export interface HeaderProp {
   white: boolean;
 }
 
-export interface LoginBtnProp {
+export interface ModalBtnProp {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;

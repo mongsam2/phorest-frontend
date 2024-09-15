@@ -4,25 +4,20 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalBody,
   ModalCloseButton,
   Input,
-  Text,
   FormControl,
   FormLabel,
   InputRightElement,
   InputGroup,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { HeaderProp, LoginBtnProp } from "./interfaces";
+import { HeaderProp, ModalBtnProp } from "./interfaces";
 import phorest from "../assets/icons/header/phorest_black.svg";
 import { FaEyeSlash } from "react-icons/fa";
 
-export default function LoginBtn({
-  white,
-  isOpen,
-  onClose,
-  onOpen,
-}: HeaderProp & LoginBtnProp) {
+export default function LoginBtn({ white }: HeaderProp) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
       <Button

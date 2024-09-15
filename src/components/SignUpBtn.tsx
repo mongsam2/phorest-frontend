@@ -1,7 +1,8 @@
-import { Button } from "@chakra-ui/react";
-import { HeaderProp } from "./interfaces";
+import { Button, useDisclosure } from "@chakra-ui/react";
+import { HeaderProp, ModalBtnProp } from "./interfaces";
 
 export default function SignUpBtn({ white }: HeaderProp) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
       <Button
