@@ -7,6 +7,7 @@ import {
   TabList,
   Tab,
   TabIndicator,
+  useDisclosure,
 } from "@chakra-ui/react";
 import phorestIconBlack from "../assets/icons/header/phorest_black.svg";
 import phorestIconWhite from "../assets/icons/header/phorest_white.svg";
@@ -18,13 +19,14 @@ import store_white from "../assets/icons/header/store_white.svg";
 import store_black from "../assets/icons/header/store_black.svg";
 import notification_white from "../assets/icons/header/notification_white.svg";
 import notification_black from "../assets/icons/header/notification_black.svg";
-import { HeaderInterface } from "./interfaces";
+import { HeaderProp } from "./interfaces";
 import LoginBtn from "./LoginBtn";
 import SignUpBtn from "./SignUpBtn";
 import UploadBtn from "./UploadBtn";
 
-export default function Header({ white }: HeaderInterface) {
+export default function Header({ white }: HeaderProp) {
   const login = false;
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex
       height={"100px"}
@@ -72,7 +74,12 @@ export default function Header({ white }: HeaderInterface) {
           <UploadBtn white={false}></UploadBtn>
         ) : (
           <HStack>
-            <LoginBtn white={false}></LoginBtn>
+            <LoginBtn
+              white={false}
+              onOpen={onOpen}
+              onClose={onClose}
+              isOpen={isOpen}
+            ></LoginBtn>
             <SignUpBtn white={false}></SignUpBtn>
           </HStack>
         )}

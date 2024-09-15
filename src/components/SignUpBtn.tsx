@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
-import { HeaderInterface } from "./interfaces";
+import { HeaderProp } from "./interfaces";
 
-export default function SignUpBtn({ white }: HeaderInterface) {
+export default function SignUpBtn({ white }: HeaderProp) {
   return (
     <div>
       <Button
