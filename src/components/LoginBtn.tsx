@@ -44,6 +44,7 @@ export default function LoginBtn({ white }: HeaderProp) {
           <ModalHeader marginTop={"50px"}>
             <img src={phorest} width={"150px"}></img>
           </ModalHeader>
+          <ModalHeader>로그인</ModalHeader>
           <ModalCloseButton size={"lg"}></ModalCloseButton>
           <FormControl padding={"50px 100px"}>
             <FormLabel fontWeight={"bold"}>이메일 주소</FormLabel>
