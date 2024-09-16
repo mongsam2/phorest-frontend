@@ -31,6 +31,7 @@ export default function Header({ white }: HeaderProp) {
       width={"100vw"}
       padding={"30px 50px"}
       justifyContent={"space-between"}
+      minWidth={"930px"}
     >
       <HStack spacing={"41px"} color={white ? "white" : "black"}>
         <img src={white ? phorestIconWhite : phorestIconBlack}></img>
