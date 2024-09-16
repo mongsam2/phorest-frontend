@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Box, HStack } from "@chakra-ui/react";
-import phorestIcon from "../assets/icons/phorest_black.svg";
-import Header from "./Header";
+import Header from "../components/Header";
 
 export default function Root() {
   return (

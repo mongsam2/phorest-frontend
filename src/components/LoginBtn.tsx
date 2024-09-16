@@ -11,13 +11,18 @@ import {
   InputRightElement,
   InputGroup,
   useDisclosure,
+  Icon,
 } from "@chakra-ui/react";
-import { HeaderProp, ModalBtnProp } from "./interfaces";
+import { ViewOffIcon, ViewIcon } from "@chakra-ui/icons";
+import { HeaderProp } from "./interfaces";
 import phorest from "../assets/icons/header/phorest_black.svg";
 import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 export default function LoginBtn({ white }: HeaderProp) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
   return (
     <div>
       <Button
@@ -45,9 +50,16 @@ export default function LoginBtn({ white }: HeaderProp) {
             <Input type="email" marginBottom={"30px"} size={"lg"}></Input>
             <FormLabel fontWeight={"bold"}>비밀번호</FormLabel>
             <InputGroup alignItems={"center"}>
-              <Input type="password" marginBottom={"30px"} size={"lg"}></Input>
+              <Input
+                type={show ? "text" : "password"}
+                marginBottom={"30px"}
+                size={"lg"}
+              ></Input>
               <InputRightElement>
-                <FaEyeSlash size={"20"} />
+                <Icon
+                  as={show ? ViewIcon : ViewOffIcon}
+                  onClick={handleClick}
+                ></Icon>
               </InputRightElement>
             </InputGroup>
             <Button
