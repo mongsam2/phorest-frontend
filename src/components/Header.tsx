@@ -52,7 +52,7 @@ export default function Header({ white }: HeaderProp) {
         </Tabs>
       </HStack>
 
-      <HStack spacing={"32px"}>
+      <HStack spacing={"15px"}>
         <Button backgroundColor={"transparent"}>
           <img src={white ? search_white : search_black} width={"32px"}></img>
         </Button>
